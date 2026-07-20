@@ -1,3 +1,8 @@
+/-
+Copyright (c) 2026 Dillon Ryan. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Dillon Ryan
+-/
 import WieferichFamilies.ClassNumberOne
 
 /-!
@@ -38,7 +43,8 @@ theorem regular_cells :
 /-! ## The typed 2×2 -/
 
 /-- The **invariant-triple datum**: the two axes `heegner` (class number 1) and
-    `irregular` (Herbrand–Ribet λ-axis), and the third `wieferich` (ν-axis) for one of `{37, 43, 67, 79, 163}`
+    `irregular` (Herbrand–Ribet λ-axis), and the third `wieferich` (ν-axis) for one of `{37, 43,
+        67, 79, 163}`
     prime. The 2×2 is the `(heegner, irregular)` grid; `wieferich` is the orthogonal
     third grade. -/
 structure InvariantTriple (p : ℤ) where

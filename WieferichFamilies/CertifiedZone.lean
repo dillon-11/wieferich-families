@@ -1,3 +1,8 @@
+/-
+Copyright (c) 2026 Dillon Ryan. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Dillon Ryan
+-/
 import Mathlib.FieldTheory.Finite.Basic
 import Mathlib.RingTheory.Polynomial.Cyclotomic.Expand
 import Mathlib.Data.Nat.Fib.Basic
@@ -115,7 +120,7 @@ lemma vZ_catalan (k : ℤ) : ∀ n : ℕ,
 theorem vZ_double_pair (k : ℤ) : ∀ n : ℕ,
     vZ k (2*n) = vZ k n ^ 2 - 2 * (-1) ^ n ∧
     vZ k (2*n+1) = vZ k n * vZ k (n+1) - k * (-1) ^ n
-  | 0 => by constructor <;> simp <;> ring
+  | 0 => ⟨by simp, by simp [two_mul]⟩
   | (n+1) => by
     obtain ⟨h1, h2⟩ := vZ_double_pair k n
     have hcat := vZ_catalan k n
@@ -149,7 +154,7 @@ law: evaluating at a norm(−1) unit α, the argument α² is a norm(+1)
 the reciprocal square law reactivates lane-wise. 444/444 metallic
 rungs verified; here is the polynomial identity feeding it. -/
 
-theorem cyclotomic_four_mul_eval (m : ℕ) (hm : 0 < m) (x : ℤ) :
+theorem cyclotomic_four_mul_eval (m : ℕ) (_hm : 0 < m) (x : ℤ) :
     (Polynomial.cyclotomic (4*m) ℤ).eval x
       = (Polynomial.cyclotomic (2*m) ℤ).eval (x^2) := by
   have h2 : (2:ℕ).Prime := Nat.prime_two
@@ -198,8 +203,10 @@ algebraic skeleton: the product law, and the two SEAMS — the shifted half-valu
 factors by construction into Fibonacci neighbours, `H₊ − 1 = 5F(F+1)`,
 handing every half-prime its own N−1 certificate vocabulary. -/
 
-/-- The Aurifeuillian half-forms of the golden tower. -/
+/-- The Aurifeuillian plus-half of the golden tower: `H₊(x) = 5x² + 5x + 1`. -/
 def aurifHalfP (x : ℤ) : ℤ := 5*x^2 + 5*x + 1
+
+/-- The Aurifeuillian minus-half of the golden tower: `H₋(x) = 5x² − 5x + 1`. -/
 def aurifHalfM (x : ℤ) : ℤ := 5*x^2 - 5*x + 1
 
 /-- Product law: `H₊·H₋ = 25x⁴ − 15x² + 1` (the quartic under `Λ_{5m}`). -/

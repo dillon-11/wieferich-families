@@ -1,3 +1,8 @@
+/-
+Copyright (c) 2026 Dillon Ryan. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Dillon Ryan
+-/
 import WieferichFamilies.PowerLadder
 
 /-!
@@ -267,14 +272,14 @@ theorem ladder_346527893 : (52280367975162154 : ℕ) ^ 346527892 ≡ 1 [MOD 1200
   exact h28
 
 /-- divisibility form of the ℚ(√−67) record: `330017383² ∣ u^{p−1} − 1`
-    with `u` the depth-2 Hensel unit root of trace `33525` in `ℚ(√−67)` — the doubly-marked field (class number one and irregular) acquires a certified Gold member. -/
+    with `u` the depth-2 Hensel unit root of trace `33525` in `ℚ(√−67)` — the doubly-marked field
+        (class number one and irregular) acquires a certified Gold member. -/
 theorem record_330017383_dvd :
     (330017383 : ℕ) ^ 2 ∣ 106546445419140355 ^ 330017382 - 1 := by
   have hsq : (330017383 : ℕ) ^ 2 = 108911473082168689 := by norm_num
-  have h1 : 1 ≤ (106546445419140355 : ℕ) ^ 330017382 :=
-    Nat.one_le_pow _ _ (by norm_num)
   rw [hsq]
-  exact (Nat.modEq_iff_dvd' h1).mp ladder_330017383.symm
+  refine (Nat.modEq_iff_dvd' ?_).mp ladder_330017383.symm
+  exact Nat.one_le_pow _ _ (by norm_num)
 
 /-- divisibility form of the genus-grade record: `346527893² ∣ u^{p−1} − 1`
     with `u` the depth-2 Hensel unit root of trace `16990` in `ℚ(√−52)` (h = 2) — the
@@ -282,10 +287,9 @@ theorem record_330017383_dvd :
 theorem record_genus_dvd :
     (346527893 : ℕ) ^ 2 ∣ 52280367975162154 ^ 346527892 - 1 := by
   have hsq : (346527893 : ℕ) ^ 2 = 120081580627019449 := by norm_num
-  have h1 : 1 ≤ (52280367975162154 : ℕ) ^ 346527892 :=
-    Nat.one_le_pow _ _ (by norm_num)
   rw [hsq]
-  exact (Nat.modEq_iff_dvd' h1).mp ladder_346527893.symm
+  refine (Nat.modEq_iff_dvd' ?_).mp ladder_346527893.symm
+  exact Nat.one_le_pow _ _ (by norm_num)
 
 /-- **both records sit above the whole prior atlas**: each exceeds
     the previous record member `6811741`, and the larger record lies in the (10⁸, 10⁹]

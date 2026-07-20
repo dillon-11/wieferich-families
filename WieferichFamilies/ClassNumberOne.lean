@@ -1,4 +1,10 @@
-import Mathlib.Tactic
+/-
+Copyright (c) 2026 Dillon Ryan. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Dillon Ryan
+-/
+import Mathlib.Data.ZMod.Basic
+import Mathlib.Tactic.NormNum
 import WieferichFamilies.PisotClassFields
 
 /-!

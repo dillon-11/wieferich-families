@@ -1,3 +1,8 @@
+/-
+Copyright (c) 2026 Dillon Ryan. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Dillon Ryan
+-/
 import Mathlib.RingTheory.Polynomial.Cyclotomic.Basic
 import Mathlib.NumberTheory.Multiplicity
 import Mathlib.Data.Nat.Squarefree
@@ -187,7 +192,7 @@ theorem exists_extrinsic_of_prod_lt {n : ℕ} (hn : 0 < n)
     ∃ q : ℕ, q.Prime ∧ (q : ℤ) ∣ (cyclotomic n ℤ).eval 2 ∧ ¬ q ∣ n := by
   set N := ((cyclotomic n ℤ).eval 2).natAbs with hN_def
   by_contra hcon
-  push_neg at hcon
+  push Not at hcon
   have hsupp : ∀ q : ℕ, q.Prime → q ∣ N → q ∣ n := by
     intro q hq hqN
     refine hcon q hq ?_
@@ -398,14 +403,14 @@ theorem dvd_radical_pow_of_bounded {N n C : ℕ} (hN : 0 < N) (hn : 0 < n)
     -- LHS ≤ C from the multiplicity bound
     have hle : N.factorization q ≤ C := by
       by_contra hgt
-      push_neg at hgt
+      push Not at hgt
       exact hbound q hq ((Nat.Prime.pow_dvd_iff_le_factorization hq hN.ne').mpr hgt)
     -- RHS: the radical's factorization at q ∈ primeFactors is exactly 1
     have hRfact : R.factorization q = 1 := by
       have h1 : R.factorization = ∑ p ∈ n.primeFactors, Nat.factorization p :=
         Nat.factorization_prod fun p hp => (Nat.prime_of_mem_primeFactors hp).ne_zero
       have h2 : R.factorization q = ∑ p ∈ n.primeFactors, Nat.factorization p q := by
-        rw [h1, Finsupp.finset_sum_apply]
+        rw [h1, Finsupp.finsetSum_apply]
       rw [h2]
       have h3 : ∀ p ∈ n.primeFactors, Nat.factorization p q = if p = q then 1 else 0 := by
         intro p hp
@@ -445,7 +450,7 @@ theorem normForm_exists_extrinsic {normValue : ℕ → ℕ} {C : ℕ}
     (h : NormFormLift normValue C) {n : ℕ} (hn : 6 < n) (hpos : 0 < normValue n) :
     ∃ q : ℕ, q.Prime ∧ q ∣ normValue n ∧ ¬ q ∣ n := by
   by_contra hcon
-  push_neg at hcon
+  push Not at hcon
   have hsupp : ∀ q : ℕ, q.Prime → q ∣ normValue n → q ∣ n := fun q hq hqN =>
     hcon q hq hqN
   have hn0 : 0 < n := by omega

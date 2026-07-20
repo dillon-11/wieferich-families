@@ -1,3 +1,8 @@
+/-
+Copyright (c) 2026 Dillon Ryan. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Dillon Ryan
+-/
 import Mathlib.FieldTheory.Finite.Basic
 import Mathlib.Tactic.Linarith
 import WieferichFamilies.HigherOrder
@@ -90,7 +95,6 @@ theorem unique_lift_of_unit_slope {p : ℕ} [Fact p.Prime] {a b : ZMod p}
   · intro y hy
     rw [← hy, inv_mul_cancel_left₀ ha]
 
-set_option maxRecDepth 40000 in
 /-- **the local count, kernel-anchored**: among `k mod 7²`, the
     metallic depth-2 condition `V₇(k) ≡ k (mod 49)` (trace of the Lucas matrix
     power) with `disc = k² + 4 ≢ 0 (mod 7)` has EXACTLY 7 solutions — the
@@ -98,7 +102,7 @@ set_option maxRecDepth 40000 in
 theorem n2_at_7 :
     ((List.range 49).filter (fun (k : ℕ) =>
       decide ((Matrix.of ![![(k : ZMod 49), 1], ![1, 0]] ^ 7).trace = (k : ZMod 49))
-      && decide ((k : ZMod 7) ^ 2 + 4 ≠ 0))).length = 7 := by decide
+      && decide ((k : ZMod 7) ^ 2 + 4 ≠ 0))).length = 7 := by decide +kernel
 
 /-- The **equidistribution datum** for a unit family: the two proven strata as recorded
     fields and the ONE open field — horizontal equidistribution. The Poisson
@@ -176,9 +180,25 @@ theorem two_mul_one_add_pow_of_cube_zero {S : Type*} [CommRing S] {x : S}
 
 /-- The salem18 companion matrix (second-smallest Salem number, M = 1.188…). -/
 abbrev C18 : Matrix (Fin 18) (Fin 18) ℤ :=
-  Matrix.of ![![0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1], ![1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1], ![0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1], ![0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1], ![0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], ![0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], ![0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1], ![0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1], ![0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1], ![0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, -1], ![0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1], ![0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, -1], ![0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1], ![0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0], ![0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0], ![0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1], ![0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, -1], ![0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1]]
+  Matrix.of ![![0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1],
+      ![1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+      ![0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1],
+      ![0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+      ![0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      ![0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      ![0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+      ![0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1],
+      ![0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+      ![0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, -1],
+      ![0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1],
+      ![0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, -1],
+      ![0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1],
+      ![0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+      ![0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
+      ![0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1],
+      ![0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, -1],
+      ![0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1]]
 
-set_option maxRecDepth 60000 in
 /-- **the integer leaf is exact collision**: the salem18
     power sums satisfy `t₃ = t₅ = t₇ = t₉ = t₁₁ = t₁ = 1` as INTEGER identities
     (traces of companion powers), so 5, 7, 11 are members at EVERY depth —
@@ -188,7 +208,7 @@ set_option maxRecDepth 60000 in
 theorem salem18_integer_collisions :
     (C18 ^ 1).trace = 1 ∧ (C18 ^ 3).trace = 1 ∧ (C18 ^ 5).trace = 1 ∧
     (C18 ^ 7).trace = 1 ∧ (C18 ^ 9).trace = 1 ∧ (C18 ^ 11).trace = 1 := by
-  decide
+  decide +kernel
 
 /-! ## The equidistributed stratum: never final -/
 
@@ -224,7 +244,7 @@ def gradeDepth : CollapseGrade → Option ℕ
     row of the exclusion classification, now internally graded. -/
 theorem grade_depth_matrix :
     gradeDepth .exactTorsion = none ∧ gradeDepth .perturbedTorsion = some 3 ∧
-    gradeDepth .kernelOnly = some 0 := by decide
+    gradeDepth .kernelOnly = some 0 := by decide +kernel
 
 /-! ## The character-sum step of depth-exactly-3 -/
 

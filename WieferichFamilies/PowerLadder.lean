@@ -1,3 +1,8 @@
+/-
+Copyright (c) 2026 Dillon Ryan. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Dillon Ryan
+-/
 import WieferichFamilies.GoldCriterion
 
 /-!
@@ -224,9 +229,9 @@ theorem ladder_6811741 : (46390612794032 : ℕ) ^ 6811740 ≡ 1 [MOD 46399815451
 theorem record_6811741_dvd :
     (6811741 : ℕ) ^ 2 ∣ 46390612794032 ^ 6811740 - 1 := by
   have hsq : (6811741 : ℕ) ^ 2 = 46399815451081 := by norm_num
-  have h1 : 1 ≤ (46390612794032 : ℕ) ^ 6811740 := Nat.one_le_pow _ _ (by norm_num)
   rw [hsq]
-  exact (Nat.modEq_iff_dvd' h1).mp ladder_6811741.symm
+  refine (Nat.modEq_iff_dvd' ?_).mp ladder_6811741.symm
+  exact Nat.one_le_pow _ _ (by norm_num)
 
 /-- **the ladder and the megadigit certificate agree**: `489061² = 239180661721`
     is the modulus of `ladder_489061`, so the ladder proves the same depth-2 condition

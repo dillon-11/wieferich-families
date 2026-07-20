@@ -1,3 +1,8 @@
+/-
+Copyright (c) 2026 Dillon Ryan. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Dillon Ryan
+-/
 import WieferichFamilies.GoldCriterion
 import WieferichFamilies.PlasticAnchor
 import WieferichFamilies.ClassGroupStructure
@@ -21,7 +26,7 @@ namespace Wieferich.Assembly
 (`unit_root_linearization`), and by Gold's criterion (J. Number
 Theory 6 (1974)) it detects `λ_p(K) > 1`. -/
 theorem unit_root_wieferich_typed {p a t : ℤ}
-    (G : Wieferich.GoldCriterion.GoldCriterion p a t) :
+    (G : Wieferich.GoldCriterion p a t) :
     G.lambdaGtOne ∧ (p : ℤ) ∣ (a * t + 1) :=
   ⟨Wieferich.GoldCriterion.gold_criterion_holds G,
    Wieferich.GoldCriterion.unit_root_linearization p a t G.p_ne G.unit_root⟩

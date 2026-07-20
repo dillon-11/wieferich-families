@@ -1,4 +1,10 @@
-import Mathlib.Tactic
+/-
+Copyright (c) 2026 Dillon Ryan. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Dillon Ryan
+-/
+import Mathlib.Data.ZMod.Basic
+import Mathlib.Tactic.NormNum
 
 /-!
 # Disjointness of the unit loci
@@ -12,11 +18,10 @@ pairwise non-membership of the known members by kernel decision.
 
 namespace Wieferich.LocusDisjointness
 
-set_option exponentiation.threshold 600 in
 /-- **521 is Perrin-Wieferich but not base-2 Wieferich**: `521² ∤
     2⁵²⁰ − 1`, so the plastic-unit member 521 is off the base-2 (rational-unit) ν-locus
     `{1093, 3511}`. The loci do not share this prime. -/
-theorem plastic_521_not_classical : ¬ (521 : ℤ) ^ 2 ∣ (2 ^ 520 - 1) := by decide
+theorem plastic_521_not_classical : ¬ (521 : ℤ) ^ 2 ∣ (2 ^ 520 - 1) := by decide +kernel
 
 /-- **the plastic ν-locus is off the base-2 locus by value**: neither
     521 nor 190699 equals a base-2 Wieferich prime `1093` or `3511`. -/
@@ -25,7 +30,8 @@ theorem plastic_members_distinct :
     (190699 : ℤ) ≠ 1093 ∧ (190699 : ℤ) ≠ 3511 := by decide
 
 /-- The **locus-disjointness datum**: for a prime `p`, its membership in the three ν-axis
-    Wieferich loci — base 2, golden (Wall–Sun–Sun), plastic (Perrin). The independence says a prime lies on at most one; the datum records the three predicates as
+    Wieferich loci — base 2, golden (Wall–Sun–Sun), plastic (Perrin). The independence says a prime
+        lies on at most one; the datum records the three predicates as
     separate grades of the ν-axis, one per algebraic unit. -/
 structure UnitLoci (p : ℤ) where
   /-- `p² ∣ 2^{p−1} − 1` (base-2 rational unit). -/
@@ -45,7 +51,6 @@ theorem unit_loci_disjoint (L : UnitLoci 521)
 
 /-! ## λ ⊥ ν within the plastic unit -/
 
-set_option maxRecDepth 4000 in
 /-- **the Perrin-Wieferich prime 521 is not on the λ-fold principal
     locus**: `x³ − x − 1` has the single root `393` mod 521 (a transposition Frobenius —
     521 is inert in `ℚ(√−23)`), so the cubic does NOT split completely (`Frob ≠ id`, not
@@ -54,6 +59,6 @@ set_option maxRecDepth 4000 in
     521 — the μ-λ-ν independence realized inside a single unit. -/
 theorem perrin_521_off_lambda_fold :
     (393 : ZMod 521) ^ 3 - 393 - 1 = 0 ∧
-    (∀ x : ZMod 521, x ^ 3 - x - 1 = 0 → x = 393) := by decide
+    (∀ x : ZMod 521, x ^ 3 - x - 1 = 0 → x = 393) := by decide +kernel
 
 end Wieferich.LocusDisjointness

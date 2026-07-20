@@ -1,4 +1,14 @@
-import Mathlib.Tactic
+/-
+Copyright (c) 2026 Dillon Ryan. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Dillon Ryan
+-/
+import Mathlib.Data.ZMod.Basic
+import Mathlib.FieldTheory.Finite.Basic
+import Mathlib.RingTheory.Polynomial.Cyclotomic.Basic
+import Mathlib.Tactic.LinearCombination
+import Mathlib.Tactic.Push
+import Mathlib.Tactic.NormNum
 
 /-!
 # The closed form of the unit-root condition
@@ -146,6 +156,10 @@ theorem linearization_zmod {p : ℕ} [Fact p.Prime] (a t : ℤ)
 
 /-! ## The typing statement -/
 
+end Wieferich.GoldCriterion
+
+namespace Wieferich
+
 /-- The **Gold typing datum** for a working ordinary prime of a CM field: the trace
     `a`, the depth-2 coefficient `t` of its unit root, the standing proof that the
     unit-root Wieferich flag is forced by `a·t ≡ −1`, and the one named input —
@@ -154,6 +168,7 @@ theorem linearization_zmod {p : ℕ} [Fact p.Prime] (a t : ℤ)
     "unit-root Wieferich = Iwasawa λ-anomaly = p-adic regulator degeneracy" at `p`;
     everything but `gold` is proven. -/
 structure GoldCriterion (p a t : ℤ) where
+  /-- The prime is nonzero (all congruences below are mod `p` or `p²`). -/
   p_ne : p ≠ 0
   /-- The depth-2 unit-root equation of an ordinary prime, to precision `p²`. -/
   unit_root : (p : ℤ) ^ 2 ∣ ((a + p * t) ^ 2 - (a * (a + p * t) - p))
@@ -163,6 +178,10 @@ structure GoldCriterion (p a t : ℤ) where
   /-- **Gold (1974)** — named: the Wieferich flag `a·t ≡ −1 (mod p)` implies
       `λ_p(K) > 1`. Not proven here; supplied by the literature. -/
   gold : (p : ℤ) ∣ (a * t + 1) → lambdaGtOne
+
+end Wieferich
+
+namespace Wieferich.GoldCriterion
 
 /-- **the type holds**: from a `GoldCriterion` datum the Wieferich flag is a
     theorem (via `unit_root_linearization`), so `gold` fires and `λ_p(K) > 1` is

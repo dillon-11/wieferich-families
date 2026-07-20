@@ -1,3 +1,8 @@
+/-
+Copyright (c) 2026 Dillon Ryan. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Dillon Ryan
+-/
 import WieferichFamilies.PierpontSmoothness
 
 /-!
@@ -54,10 +59,9 @@ theorem wolstenholme_7 :
 
 /-! ## The classical ν-generator, kernel-certified -/
 
-set_option exponentiation.threshold 1100 in
 /-- **the classical Wieferich prime**: `1093² ∣ 2¹⁰⁹² − 1`. The
     base-2 ν-axis generator, certified through the full 329-digit power. -/
-theorem wieferich_1093_kernel : (1093 : ℕ) ^ 2 ∣ 2 ^ 1092 - 1 := by decide
+theorem wieferich_1093_kernel : (1093 : ℕ) ^ 2 ∣ 2 ^ 1092 - 1 := by decide +kernel
 
 /-! ## The edge datum -/
 

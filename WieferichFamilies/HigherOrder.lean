@@ -1,3 +1,8 @@
+/-
+Copyright (c) 2026 Dillon Ryan. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Dillon Ryan
+-/
 import WieferichFamilies.LiftDichotomy
 import Mathlib.Data.Matrix.Mul
 import Mathlib.Data.Fin.VecNotation
@@ -46,54 +51,54 @@ theorem torsion_diagonal_rigid {S : Type*} [CommRing S] {p : ℕ} {c d : S}
 
 /-! ## The nine depth-4 certificates (Lucas matrix power mod p⁴) -/
 
-set_option maxRecDepth 8000 in
-/-- depth-4 member `(k, p) = (103, 11)` of the family x² − kx − 1: `V_11(103) ≡ 103 (mod 11⁴ = 14641)`. -/
+/-- depth-4 member `(k, p) = (103, 11)` of the family x² − kx − 1:
+    `V_11(103) ≡ 103 (mod 11⁴ = 14641)`. -/
 theorem hyper_103_11 :
-    (Matrix.of ![![(103 : ZMod 14641), 1], ![1, 0]] ^ 11).trace = 103 := by decide
+    (Matrix.of ![![(103 : ZMod 14641), 1], ![1, 0]] ^ 11).trace = 103 := by decide +kernel
 
-set_option maxRecDepth 8000 in
-/-- depth-4 member `(k, p) = (176, 7)` of the family x² − kx − 1: `V_7(176) ≡ 176 (mod 7⁴ = 2401)`. -/
+/-- depth-4 member `(k, p) = (176, 7)` of the family x² − kx − 1:
+    `V_7(176) ≡ 176 (mod 7⁴ = 2401)`. -/
 theorem hyper_176_7 :
-    (Matrix.of ![![(176 : ZMod 2401), 1], ![1, 0]] ^ 7).trace = 176 := by decide
+    (Matrix.of ![![(176 : ZMod 2401), 1], ![1, 0]] ^ 7).trace = 176 := by decide +kernel
 
-set_option maxRecDepth 8000 in
-/-- depth-4 member `(k, p) = (182, 5)` of the family x² − kx − 1: `V_5(182) ≡ 182 (mod 5⁴ = 625)`. -/
+/-- depth-4 member `(k, p) = (182, 5)` of the family x² − kx − 1:
+    `V_5(182) ≡ 182 (mod 5⁴ = 625)`. -/
 theorem hyper_182_5 :
-    (Matrix.of ![![(182 : ZMod 625), 1], ![1, 0]] ^ 5).trace = 182 := by decide
+    (Matrix.of ![![(182 : ZMod 625), 1], ![1, 0]] ^ 5).trace = 182 := by decide +kernel
 
-set_option maxRecDepth 8000 in
-/-- depth-4 member `(k, p) = (239, 13)` of the family x² − kx − 1: `V_13(239) ≡ 239 (mod 13⁴ = 28561)`. -/
+/-- depth-4 member `(k, p) = (239, 13)` of the family x² − kx − 1:
+    `V_13(239) ≡ 239 (mod 13⁴ = 28561)`. -/
 theorem hyper_239_13 :
-    (Matrix.of ![![(239 : ZMod 28561), 1], ![1, 0]] ^ 13).trace = 239 := by decide
+    (Matrix.of ![![(239 : ZMod 28561), 1], ![1, 0]] ^ 13).trace = 239 := by decide +kernel
 
-set_option maxRecDepth 8000 in
-/-- depth-4 member `(k, p) = (306, 7)` of the family x² − kx − 1: `V_7(306) ≡ 306 (mod 7⁴ = 2401)`. -/
+/-- depth-4 member `(k, p) = (306, 7)` of the family x² − kx − 1:
+    `V_7(306) ≡ 306 (mod 7⁴ = 2401)`. -/
 theorem hyper_306_7 :
-    (Matrix.of ![![(306 : ZMod 2401), 1], ![1, 0]] ^ 7).trace = 306 := by decide
+    (Matrix.of ![![(306 : ZMod 2401), 1], ![1, 0]] ^ 7).trace = 306 := by decide +kernel
 
-set_option maxRecDepth 8000 in
-/-- depth-4 member `(k, p) = (367, 7)` of the family x² − kx − 1: `V_7(367) ≡ 367 (mod 7⁴ = 2401)`. -/
+/-- depth-4 member `(k, p) = (367, 7)` of the family x² − kx − 1:
+    `V_7(367) ≡ 367 (mod 7⁴ = 2401)`. -/
 theorem hyper_367_7 :
-    (Matrix.of ![![(367 : ZMod 2401), 1], ![1, 0]] ^ 7).trace = 367 := by decide
+    (Matrix.of ![![(367 : ZMod 2401), 1], ![1, 0]] ^ 7).trace = 367 := by decide +kernel
 
-set_option maxRecDepth 8000 in
-/-- depth-4 member `(k, p) = (443, 5)` of the family x² − kx − 1: `V_5(443) ≡ 443 (mod 5⁴ = 625)`. -/
+/-- depth-4 member `(k, p) = (443, 5)` of the family x² − kx − 1:
+    `V_5(443) ≡ 443 (mod 5⁴ = 625)`. -/
 theorem hyper_443_5 :
-    (Matrix.of ![![(443 : ZMod 625), 1], ![1, 0]] ^ 5).trace = 443 := by decide
+    (Matrix.of ![![(443 : ZMod 625), 1], ![1, 0]] ^ 5).trace = 443 := by decide +kernel
 
-set_option maxRecDepth 8000 in
-/-- depth-4 member `(k, p) = (625, 5)` of the family x² − kx − 1: `V_5(625) ≡ 625 (mod 5⁴ = 625)`. -/
+/-- depth-4 member `(k, p) = (625, 5)` of the family x² − kx − 1:
+    `V_5(625) ≡ 625 (mod 5⁴ = 625)`. -/
 theorem hyper_625_5 :
-    (Matrix.of ![![(625 : ZMod 625), 1], ![1, 0]] ^ 5).trace = 625 := by decide
+    (Matrix.of ![![(625 : ZMod 625), 1], ![1, 0]] ^ 5).trace = 625 := by decide +kernel
 
-set_option maxRecDepth 8000 in
-/-- depth-4 member `(k, p) = (807, 5)` of the family x² − kx − 1: `V_5(807) ≡ 807 (mod 5⁴ = 625)`. -/
+/-- depth-4 member `(k, p) = (807, 5)` of the family x² − kx − 1:
+    `V_5(807) ≡ 807 (mod 5⁴ = 625)`. -/
 theorem hyper_807_5 :
-    (Matrix.of ![![(807 : ZMod 625), 1], ![1, 0]] ^ 5).trace = 807 := by decide
+    (Matrix.of ![![(807 : ZMod 625), 1], ![1, 0]] ^ 5).trace = 807 := by decide +kernel
 /-- the hyper moduli are fourth powers: `14641 = 11⁴`,
     `2401 = 7⁴`, `625 = 5⁴`, `28561 = 13⁴`. -/
 theorem hyper_moduli :
     (14641 : ℕ) = 11 ^ 4 ∧ (2401 : ℕ) = 7 ^ 4 ∧ (625 : ℕ) = 5 ^ 4 ∧
-    (28561 : ℕ) = 13 ^ 4 := by decide
+    (28561 : ℕ) = 13 ^ 4 := by decide +kernel
 
 end Wieferich.HigherOrder

@@ -1,3 +1,8 @@
+/-
+Copyright (c) 2026 Dillon Ryan. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Dillon Ryan
+-/
 import WieferichFamilies.LiftDichotomy
 import WieferichFamilies.Exclusions
 import WieferichFamilies.ZsygmondyLTE
@@ -56,11 +61,11 @@ theorem metallicV_lt_succ {k : ℕ} (hk : 1 ≤ k) : ∀ n, 1 ≤ n →
   intro n hn
   match n, hn with
   | 1, _ =>
-    show metallicV k 1 < metallicV k 2
+    change metallicV k 1 < metallicV k 2
     simp only [metallicV]
     nlinarith
   | m + 2, _ =>
-    show metallicV k (m + 2) < metallicV k (m + 3)
+    change metallicV k (m + 2) < metallicV k (m + 3)
     have h1 := metallicV_pos hk (m + 1)
     simp only [metallicV]
     have hA : k * metallicV k (m + 1) + metallicV k m
@@ -148,7 +153,8 @@ theorem unit_slope_root_multiplicity_one {K : Type*} [Field K] {a b : K} (ha : a
   have hP0 : (C a * X - C b : Polynomial K) ≠ 0 := by
     intro h
     have hc : (C a * X - C b : Polynomial K).coeff 1 = 0 := by rw [h]; simp
-    simp [coeff_sub] at hc
+    rw [coeff_sub, coeff_C_mul, coeff_X_one, mul_one, coeff_C, if_neg one_ne_zero,
+      sub_zero] at hc
     exact ha hc
   have hdeg : (C a * X - C b : Polynomial K).natDegree = 1 := by
     compute_degree!
