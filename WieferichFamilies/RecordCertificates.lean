@@ -278,8 +278,7 @@ theorem record_330017383_dvd :
     (330017383 : ℕ) ^ 2 ∣ 106546445419140355 ^ 330017382 - 1 := by
   have hsq : (330017383 : ℕ) ^ 2 = 108911473082168689 := by norm_num
   rw [hsq]
-  refine (Nat.modEq_iff_dvd' ?_).mp ladder_330017383.symm
-  exact Nat.one_le_pow _ _ (by norm_num)
+  exact dvd_sub_one_of_modEq (by norm_num) ladder_330017383
 
 /-- divisibility form of the genus-grade record: `346527893² ∣ u^{p−1} − 1`
     with `u` the depth-2 Hensel unit root of trace `16990` in `ℚ(√−52)` (h = 2) — the
@@ -288,8 +287,7 @@ theorem record_genus_dvd :
     (346527893 : ℕ) ^ 2 ∣ 52280367975162154 ^ 346527892 - 1 := by
   have hsq : (346527893 : ℕ) ^ 2 = 120081580627019449 := by norm_num
   rw [hsq]
-  refine (Nat.modEq_iff_dvd' ?_).mp ladder_346527893.symm
-  exact Nat.one_le_pow _ _ (by norm_num)
+  exact dvd_sub_one_of_modEq (by norm_num) ladder_346527893
 
 /-- **both records sit above the whole prior atlas**: each exceeds
     the previous record member `6811741`, and the larger record lies in the (10⁸, 10⁹]

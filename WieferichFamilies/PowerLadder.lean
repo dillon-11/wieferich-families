@@ -222,6 +222,14 @@ theorem ladder_6811741 : (46390612794032 : ℕ) ^ 6811740 ≡ 1 [MOD 46399815451
     rw [e] at h; exact h.trans (by decide)
   exact h22
 
+/-- passage from the `Nat.ModEq` form of a ladder conclusion to its divisibility form.
+    Stated in variables only: the `1 ≤ u ^ e` side condition is discharged here, where the
+    exponent is opaque, so no certificate below has to expose a record-height literal power
+    to definitional unfolding. -/
+theorem dvd_sub_one_of_modEq {u e n : ℕ} (hu : 0 < u) (h : u ^ e ≡ 1 [MOD n]) :
+    n ∣ u ^ e - 1 :=
+  (Nat.modEq_iff_dvd' (Nat.one_le_pow _ _ hu)).mp h.symm
+
 /-- the ladder in divisibility form: `p² ∣ u^{p−1} − 1` at the atlas record
     `p = 6811741`, `u = 46390612794032` the depth-2 Hensel unit root of trace `5042`
     (`D = −3`). The full unit-root Wieferich condition at the record height, from 23
@@ -230,8 +238,7 @@ theorem record_6811741_dvd :
     (6811741 : ℕ) ^ 2 ∣ 46390612794032 ^ 6811740 - 1 := by
   have hsq : (6811741 : ℕ) ^ 2 = 46399815451081 := by norm_num
   rw [hsq]
-  refine (Nat.modEq_iff_dvd' ?_).mp ladder_6811741.symm
-  exact Nat.one_le_pow _ _ (by norm_num)
+  exact dvd_sub_one_of_modEq (by norm_num) ladder_6811741
 
 /-- **the ladder and the megadigit certificate agree**: `489061² = 239180661721`
     is the modulus of `ladder_489061`, so the ladder proves the same depth-2 condition
