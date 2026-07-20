@@ -1,5 +1,5 @@
 # Aurifeuillian half-primes of the golden tower: H(s) = 5*F_m^2 + s*5*F_m + 1, m odd
-# Law: Lambda_{5m} = (H+/s+)(H-/s-), strays = rank-of-apparition primes (C-109311)
+# Law: Lambda_{5m} = (H+/s+)(H-/s-); stray factors are rank-of-apparition primes
 # Seam: H - 1 = 5*F_m*(F_m + s) -- the N-1 certificate side factors by construction
 m	sign	digits	H
 3	+	2	31
