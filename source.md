@@ -11,10 +11,16 @@ A Wieferich prime is a prime p with p² | 2^{p−1} − 1 [Wieferich 1909]. We
 study the condition in the generality it naturally lives in: to every
 algebraic unit α is attached a Wieferich locus
 
-    W(α) = { p : ord(α mod p²) = ord(α mod p) },
+    W(α) = { p : Tr(α^p) ≡ Tr(α) (mod p²) },
 
-the set of primes at which the multiplicative order of α fails to grow from
-p to p². One elementary theorem governs every instance: for a group
+the depth-2 Frobenius-trace condition — the same congruence mod p is
+Frobenius, true at every unramified prime, and membership asks it one
+p-power deeper. For rational units this is the classical condition that the
+multiplicative order fails to grow from p to p² (p² | 2^{p−1} − 1); the
+quadratic development below is trace-native throughout; at higher degree
+the trace form is the computable ℤ-rational shadow of the eigenvalue-wise
+Frobenius lift, and is strictly weaker than order stability (see the Remark
+after Definition 1.1). One elementary theorem governs every instance: for a group
 homomorphism whose kernel has exponent p, element orders lift by a factor of
 1 or exactly p, and the reduction (ℤ[α]/p²)ˣ → (ℤ[α]/p)ˣ is such a
 homomorphism. The classical Wieferich condition, the Wall–Sun–Sun condition
@@ -53,7 +59,23 @@ mechanism theorems are machine-checked against Mathlib.
 degree d, R = ℤ[α], and let p ∤ disc(P) be prime. The *Wieferich locus* of α
 is
 
-    W(α) = { p prime : ord_{(R/p²R)ˣ}(α) = ord_{(R/pR)ˣ}(α) }.
+    W(α) = { p prime : Tr_{R/ℤ}(α^p) ≡ Tr_{R/ℤ}(α) (mod p²) }.
+
+The congruence mod p is Frobenius, automatic at every such p — this is the
+census integrity guard; membership promotes it to p².
+
+**Remark (trace form and order form).** For d = 1 the definition is the
+classical one: Tr = id and 2^p ≡ 2 (mod p²) is equivalent to
+ord(2 mod p²) = ord(2 mod p). At higher degree the two conditions separate,
+and every census and kernel in this paper computes the trace form. Witnesses:
+for P = x⁴ − x³ − 1 the member p = 2819 has
+ord_{(R/pR)ˣ}(α) = 44819737680 and the order grows at p²; for Lehmer's unit
+the sole member p = 720847 below 10¹⁰ has
+ord_{(R/pR)ˣ}(α) = 24329068983575753563792293980 and the order likewise
+grows. The order-lift dichotomy (Theorem 1.2) still governs each eigenvalue
+individually; the trace congruence is the trace of the eigenvalue-wise
+Frobenius-lift condition α^p ≡ α^σ (mod 𝔭²) summed over conjugates, which
+can hold in aggregate without any single eigenvalue order stabilizing.
 
 **Theorem 1.2 (order-lift dichotomy).** Let φ : G → H be a group
 homomorphism whose kernel has exponent p, and let g ∈ G with φ(g) of finite

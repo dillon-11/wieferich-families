@@ -3,7 +3,9 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21456694.svg)](https://doi.org/10.5281/zenodo.21456694)
 
 To every algebraic unit α is attached a Wieferich locus: the set of primes
-p at which the multiplicative order of α does not grow from p to p². The
+p at which the Frobenius trace congruence Tr(α^p) ≡ Tr(α) holds mod p²
+rather than merely mod p (for rational units: the classical condition that
+the multiplicative order does not grow from p to p²). The
 classical Wieferich condition (`p² | 2^(p−1) − 1`), the Wall–Sun–Sun
 condition, the Perrin-square condition, and Gold's criterion for the
 Iwasawa invariant λ_p(K) > 1 of an imaginary quadratic field are
