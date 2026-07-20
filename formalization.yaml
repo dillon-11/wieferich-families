@@ -2,7 +2,7 @@ version: "v0.3"
 
 project:
   name: "wieferich-families"
-  authors: ["Michael Ryan Clarkson"]
+  authors: ["Dillon Ryan"]
   license: "Apache-2.0 (code); CC BY 4.0 (source.md, PROVENANCE.md)"
 
 sources:
