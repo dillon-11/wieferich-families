@@ -7,5 +7,9 @@
     "torsion_diagonal_rigid",
     "wieferich_720847_trace"
   ],
-  "allowed_axioms": ["propext", "Classical.choice", "Quot.sound"]
+  "permitted_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ]
 }
