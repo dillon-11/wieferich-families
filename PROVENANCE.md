@@ -1,5 +1,8 @@
 # Provenance and verification discipline
 
+Archived releases: https://doi.org/10.5281/zenodo.21456694 (version DOIs
+per release; v0.1.0 is the first archived version).
+
 ## Verification layers (why no false member is possible)
 
 1. **The Frobenius guard** is unconditional: `tr(α^p) ≡ tr(α) (mod p)` holds for

@@ -1,5 +1,7 @@
 # Wieferich phenomena of algebraic units
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21456694.svg)](https://doi.org/10.5281/zenodo.21456694)
+
 To every algebraic unit α is attached a Wieferich locus: the set of primes
 p at which the multiplicative order of α does not grow from p to p². The
 classical Wieferich condition (`p² | 2^(p−1) − 1`), the Wall–Sun–Sun
