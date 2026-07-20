@@ -3,6 +3,11 @@ Copyright (c) 2026 Dillon Ryan. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Dillon Ryan
 -/
+import Mathlib
+-- The broad import is deliberate and load-bearing: the top-level comparison
+-- theorems below must elaborate in the same environment as Challenge.lean
+-- (which imports all of Mathlib). A narrower import changes instance-resolution
+-- paths and the comparator rejects byte-identical statements. Do not narrow.
 import WieferichFamilies.Assembly
 import WieferichFamilies.AtlasCertificates
 import WieferichFamilies.BernoulliAnchors
