@@ -1,0 +1,9 @@
+# Wieferich-type primes of Lehmer's polynomial
+# L(x) = x^10 + x^9 - x^7 - x^6 - x^5 - x^4 - x^3 + x + 1
+# condition: tr(alpha^p) === tr(alpha) = -1 (mod p^2), p not dividing disc(L)
+# census bound: 10^9 (complete, fixed-sieve kernels, preregistered; the
+# [10^9, 10^10) decade extension is in progress)
+# verification: C kernel + independent big-integer companion power + Lean
+# certificate + degree-5 Dickson trace ladder (see PROVENANCE.md)
+# b-file format: n a(n)
+1 720847

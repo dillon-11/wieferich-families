@@ -1,0 +1,20 @@
+2-tower   primes= 92  pock(beta>1/3)= 84 (91%)  full(beta~1)= 79  median_beta=1.000
+          best Pocklington-certifiable: rung 521, 157 digits, beta=1.000
+          best FULLY factored -+1: rung 521, 157 digits: 68647976601306097149819007990813932172694353001433
+          pock map (rung,digits,beta): [(521, 157, 1.0), (579, 116, 0.51), (471, 94, 1.0), (507, 94, 1.0), (590, 71, 0.34), (398, 60, 0.74), (382, 58, 0.66), (345, 54, 1.0)]
+gold      primes= 62  pock(beta>1/3)= 59 (95%)  full(beta~1)= 56  median_beta=1.000
+          best Pocklington-certifiable: rung 503, 106 digits, beta=0.361
+          best FULLY factored -+1: rung 513, 68 digits: 51513406617400034364080828860546058956692562707518
+          pock map (rung,digits,beta): [(503, 106, 0.36), (353, 74, 0.44), (513, 68, 1.0), (313, 66, 0.6), (459, 61, 1.0), (423, 58, 1.0), (261, 36, 1.0), (522, 36, 1.0)]
+silver    primes= 47  pock(beta>1/3)= 47 (100%)  full(beta~1)= 33  median_beta=1.000
+          best Pocklington-certifiable: rung 575, 169 digits, beta=0.830
+          best FULLY factored -+1: rung 291, 74 digits: 25905078670961959331586629937795891427343005829707
+          pock map (rung,digits,beta): [(575, 169, 0.83), (421, 161, 0.52), (591, 150, 0.79), (257, 99, 0.79), (514, 99, 0.79), (381, 97, 0.65), (291, 74, 1.0), (582, 74, 1.0)]
+bronze    primes= 40  pock(beta>1/3)= 39 (98%)  full(beta~1)= 33  median_beta=1.000
+          best Pocklington-certifiable: rung 337, 175 digits, beta=0.571
+          best FULLY factored -+1: rung 297, 94 digits: 25016873964602427223964678929400934473629455909330
+          pock map (rung,digits,beta): [(337, 175, 0.57), (365, 150, 0.43), (297, 94, 1.0), (594, 94, 1.0), (175, 63, 0.6), (350, 63, 0.6), (109, 57, 1.0), (218, 57, 1.0)]
+lehmer    primes=372  pock(beta>1/3)=372 (100%)  full(beta~1)=372  median_beta=1.000
+          best Pocklington-certifiable: rung 523, 20 digits, beta=1.000
+          best FULLY factored -+1: rung 523, 20 digits: 26025175049974601089
+          pock map (rung,digits,beta): [(523, 20, 1.0), (577, 20, 1.0), (517, 19, 1.0), (581, 19, 1.0), (479, 18, 1.0), (589, 18, 1.0), (457, 17, 1.0), (481, 17, 1.0)]

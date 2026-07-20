@@ -1,0 +1,40 @@
+# The Gold atlas: unit-root Wieferich members (lambda_p(K) > 1 witnesses by Gold's criterion)
+# 47 imaginary quadratic fields, class numbers 1-5; principal-split primes, depth-2 Hensel-verified
+# columns: D p a   (D = field discriminant label as swept; a = Cornacchia x in 4p = x^2 + |D| y^2)
+# depth: unit-root depth v_p(u^{p-1}-1) = 2 for every member (mod p^3 recomputation,
+#   scripts/gold_depth_census.py; preregistered, Poisson expectation for depth>=3 was 0.47)
+# range [5, 10^8): 30 rows, 28 distinct primes, Poisson lambda = 20.18, Frobenius guard fired 0 times
+# regenerate: cc -O2 -o gold_sweep scripts/gold_sweep_kernel.c -lm && ./gold_sweep 5 100000000
+-11 5 3
+-19 11 5
+-3 13 7
+-88 23 2
+-83 41 9
+-227 113 15
+-52 113 20
+-3 181 26
+-31 227 28
+-47 1193 42
+-163 1523 77
+-43 1741 59
+-15 1741 82
+-3 2521 97
+-20 5881 148
+-68 8521 64
+-7 19531 268
+-67 24421 221
+-4 29789 266
+-3 76543 553
+-83 89431 532
+-163 108529 242
+-132 281581 826
+-3 489061 1351
+-67 880301 1573
+-11 1769069 1026
+-3 6811741 5042
+-56 17525953 6626
+-163 32040013 8005
+-163 85611527 13135
+# decade (10^8, 10^9]: the two records
+-67 330017383 33525
+-52 346527893 16990

@@ -1,0 +1,115 @@
+version: "v0.3"
+
+project:
+  name: "wieferich-families"
+  authors: ["Michael Ryan Clarkson"]
+  license: "Apache-2.0 (code); CC BY 4.0 (source.md, PROVENANCE.md)"
+
+sources:
+  - title: "Zum letzten Fermatschen Theorem"
+    authors: ["A. Wieferich"]
+    id: "https://doi.org/10.1515/crll.1909.136.293"
+    type: "paper (J. Reine Angew. Math. 136, 1909)"
+    author_contacted: "n/a"
+  - title: "The nontriviality of certain Z_l-extensions"
+    authors: ["R. Gold"]
+    id: "https://doi.org/10.1016/0022-314X(74)90031-0"
+    type: "paper (J. Number Theory 6, 1974)"
+    author_contacted: "n/a"
+  - title: "Factorization of certain cyclotomic functions"
+    authors: ["D. H. Lehmer"]
+    id: "https://doi.org/10.2307/1968172"
+    type: "paper (Annals of Mathematics 34, 1933)"
+    author_contacted: "n/a"
+  - title: "On a question of Lehmer and the number of irreducible factors of a polynomial"
+    authors: ["E. Dobrowolski"]
+    id: "Acta Arith. 34 (1979), 391-401"
+    type: "paper — the baseline divisibility is proved here in general; the increment law is this repository's own contribution"
+    author_contacted: "n/a"
+  - title: "Mahler measure (Landau/Mignotte bounds, roots-product formula)"
+    authors: ["Mathlib contributors"]
+    id: "Mathlib.Analysis.Polynomial.MahlerMeasure"
+    type: "library (Mathlib)"
+    author_contacted: "no"
+  - title: "New primality criteria and factorizations of 2^m +- 1"
+    authors: ["J. Brillhart", "D. H. Lehmer", "J. L. Selfridge"]
+    id: "https://doi.org/10.1090/S0025-5718-1975-0384673-1"
+    type: "paper (Math. Comp. 29, 1975)"
+    author_contacted: "n/a"
+
+status:
+  scope: >
+    The Lean companion of the paper (source.md): the order-lift dichotomy and
+    its instantiation for the reduction of any order; the depth->=3 algebra
+    with the nine depth-4 certificates; the classification of empty census
+    classes; trace returns force torsion; the Dobrowolski baseline
+    q^(deg P) | Res(P, P(x^q)) in general via the Frobenius factorization;
+    the Pierce two-sided bound 1 <= prod |alpha^m - 1| <= 2^d M^m against
+    Mathlib's Mahler measure; the metallic regulator identity
+    M(x^2 - kx - 1) = fundamental unit with the golden floor at degree 2;
+    the LTE tower linearity v_q(x^(q^k) - 1) = v_q(x-1) + k (the Iwasawa
+    lambda = 1, mu = 0 reading); the Birkhoff-Vandiver first-power bound and
+    the Zsygmondy reduction; Gold's criterion closed form and the
+    census-flag/Gold-flag agreement; O(log p) member certificates through
+    p = 346527893; the certified zone and the search-cost model. Census
+    tallies, the fifteen APR-CL primes, and the Massey-rung computation
+    (scripts/) are exact computations with included scripts and stored
+    certificates, not Lean theorems.
+  sorry_count: 4
+  sorry_in_definitions: 0
+  axioms: ["propext", "Classical.choice", "Quot.sound"]
+  main_results:
+    - declaration: "orderOf_dichotomy_of_ker_exponent"
+      file: "WieferichFamilies.lean (proof in WieferichFamilies/LiftDichotomy.lean)"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "config.json"
+      literature_dependencies: []
+    - declaration: "certified_zone"
+      file: "WieferichFamilies.lean (proof in WieferichFamilies/CertifiedZone.lean)"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "config.json"
+      literature_dependencies: []
+    - declaration: "torsion_diagonal_rigid"
+      file: "WieferichFamilies.lean (proof in WieferichFamilies/HigherOrder.lean)"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "config.json"
+      literature_dependencies: []
+    - declaration: "wieferich_720847_trace"
+      file: "WieferichFamilies.lean (proof in WieferichFamilies/LehmerCertificate.lean)"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "config.json"
+      literature_dependencies: []
+    - declaration: "qpow_dvd_dobResultant"
+      file: "WieferichFamilies/DobrowolskiBaseline.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      literature_dependencies: ["Mathlib resultant API"]
+    - declaration: "pierce_sandwich"
+      file: "WieferichFamilies/PierceValues.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      literature_dependencies: ["Mathlib.Analysis.Polynomial.MahlerMeasure"]
+  fidelity_notes: >
+    Challenge.lean states four theorems in sorry form by design (the
+    challenge surface); the comparator (config.json) checks the solution
+    module re-proves them against Mathlib only. The paper's increment law
+    for Dobrowolski's resultant is census-supported, not formalized; only
+    the >= (baseline) direction is a Lean theorem. Census completeness
+    above 10^8 is gated on the fixed-kernel re-runs disclosed in
+    PROVENANCE.md.
+
+automation:
+  methods:
+    - method: "agent"
+      models: ["claude-fable-5", "claude-opus-4-7"]
+      framework: "Claude Code + the author's research engine (\"ail\")"
+      tool_setup: >
+        Three contributors: the human author (direction, judgment, review);
+        Claude models via Claude Code (reasoning, implementation, Lean
+        formalization); and the author's research harness ("ail") enforcing
+        preregistration, control-first experiments, guard-checked kernels,
+        and independent re-computation.

@@ -1,0 +1,11 @@
+silver rung 1874: PRIME 359 digits closed_beta=0.449  ** CLOSED-CERTIFIABLE
+silver rung 1894: PRIME 363 digits closed_beta=0.246
+silver rung 1901: PRIME 728 digits closed_beta=0.132
+silver rung 2986: PRIME 572 digits closed_beta=0.073
+silver rung 3802: PRIME 728 digits closed_beta=0.132
+silver SUMMARY: primes=5 certifiable=1 best=[(728, 3802, 0.1324650703279766), (728, 1901, 0.1324650703279766), (572, 2986, 0.07307480074538378), (363, 1894, 0.24613837598361538), (359, 1874, 0.448871737487164)]
+gold rung 1726: PRIME 181 digits closed_beta=0.503  ** CLOSED-CERTIFIABLE
+gold rung 2194: PRIME 230 digits closed_beta=0.455  ** CLOSED-CERTIFIABLE
+gold rung 2722: PRIME 285 digits closed_beta=0.492  ** CLOSED-CERTIFIABLE
+gold SUMMARY: primes=3 certifiable=3 best=[(285, 2722, 0.49248476682528003), (230, 2194, 0.45537598658933126), (181, 1726, 0.5025171215969693)]
+PUSH_DONE

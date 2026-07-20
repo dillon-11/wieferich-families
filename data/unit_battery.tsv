@@ -1,0 +1,16 @@
+# Unit Wieferich loci, battery census to 10^9 (fixed-sieve kernels,
+# preregistered, Frobenius guard fired 0 times; see PROVENANCE.md).
+# Generic-regime members only (p > deg); integer-regime members (p <= deg,
+# deterministic divisibilities) listed in the last column.
+# columns: unit	polynomial	members_le_1e9	integer_regime
+silver	x^2-2x-1	13 31 1546463	-
+bronze	x^2-3x-1	241	-
+supergolden	x^3-x^2-1	(empty; P(0)=8.5%)	-
+tribonacci	x^3-x^2-x-1	233	-
+pisot4	x^4-x^3-1	2819 3178913	-
+lehmer	x^10+x^9-x^7-x^6-x^5-x^4-x^3+x+1	720847	-
+salem14	x^14-x^11-x^10+x^7-x^4-x^3+1 (M=1.200027)	144479	5 7
+salem18	x^18-x^17+x^16-x^15-x^12+x^11-x^10+x^9-x^8+x^7-x^6-x^3+x^2-x+1 (M=1.188368, 2nd-smallest known Salem)	4674101	5 7 11
+# classical rows for context (literature bounds):
+# base-2: 1093 3511 (to 2^64); golden/Wall-Sun-Sun: empty (to 2.8e15);
+# plastic/Perrin: 521 190699 (OEIS A173656)
